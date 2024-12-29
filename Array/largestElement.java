@@ -1,7 +1,4 @@
-import java.util.Collection;
-import java.util.Collections;
-import java.util.PriorityQueue;
-import java.util.Scanner;
+import java.util.*;
 
 public class largestElement{
     public static int secondLargest(int arr[]){
