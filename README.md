@@ -1,5 +1,5 @@
 # Data-Structures
-# ==============================================================================================================================================
+# =========================================================
 # Data Structure is a storage that is used to store and organize data in a computer in order to retrieve,process data efficiently.
 # Data Structure is a collection of data and functions that operate on that data.
 # Data Structures are used to improve the efficiency of algorithms by reducing the time and space complexity of the algorithm.
@@ -11,7 +11,7 @@
 #    a. Linear Data Structures: These are the data structures in which elements are stored in a linear order. Examples of linear data structures #       are array, linked list, stack, queue etc
 #    b. Non-Linear Data Structures: These are the data structures in which elements are not
 #       stored in a linear order. Examples of non-linear data structures are tree, graph etc.
-# ==============================================================================================================================================
+# ============================================================
 
 
 
