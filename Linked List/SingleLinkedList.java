@@ -38,7 +38,7 @@ public class SingleLinkedList {
         return false;
     }
     
-/*Traverse and Length*/
+/*Traverse*/
     public static void display(Node root) {
         Node temp = root;
         while (temp != null) { 
@@ -46,6 +46,8 @@ public class SingleLinkedList {
             temp = temp.next;
         }
     }
+
+/*Length */
     public static int length(Node root){
         Node temp=root;
         int c=0;
@@ -73,6 +75,28 @@ public static void insertAtPosition(Node root,int data, int position){
     }
     node.next=temp.next;
     temp.next=node;
+}
+
+/*Insert in sorted manner */
+public static void insertInSorted(Node root,int data){
+    Node node=new Node(data);
+    Node temp=root;
+    if(root==null){
+        root=node;
+        return ;
+    }
+    else if(root.data>=node.data){
+        node.next=root;
+        root=node;
+        return ;
+    }
+    else{
+        while(temp.next!=null && temp.next.data<node.data){
+            temp=temp.next;
+        }
+        node.next=temp.next;
+        temp.next=node;
+    }
 }
 
 /*Delete node at particular position */
@@ -106,6 +130,24 @@ public static void deleteAllOccurences(Node root,int key){
         root=root.next;
     }
 }
+
+/*Delete all duplicates values in list */
+    public static void deleteDuplicates(Node root){
+        Node temp=root;
+        if(root==null){
+            return;
+        }
+        while(temp!=null && temp.next!=null){
+            if(temp.next.data==temp.data){
+                temp.next=temp.next.next;
+            }
+            else{
+                temp=temp.next;
+            }
+        }
+    }
+
+
 /*Reverse of LinkedList */
 public static void reverse(Node root){
     Node prev = null,head=root;
@@ -124,6 +166,7 @@ public static void reverse(Node root){
     }
     System.out.println();
 }
+
 /*Middle Element of LinkedList */
 public static void middleElement(Node root){
     Node slow=root,fast=root;
@@ -131,12 +174,11 @@ public static void middleElement(Node root){
         System.out.println("Empty List");
         return;
     }
-    else{
-        while(fast!=null && fast.next!=null){
-            slow=slow.next;
-            fast=fast.next.next;
-        }
+    while(fast!=null && fast.next!=null){
+        slow=slow.next;
+        fast=fast.next.next;
     }
+    
     System.out.println("Middle Element is:"+slow.data);
 }
     public static void main(String[] args) {
@@ -184,5 +226,16 @@ public static void middleElement(Node root){
         reverse(root);
 
         middleElement(root);
+        
+        deleteDuplicates(root);
+
+        System.out.println("After deleting duplicates:");
+        display(root);
+
+        System.out.println("Enter the element to be inserted in sorted manner:");
+        int insertSorted = sc.nextInt();
+        insertInSorted(root,insertSorted);
+        display(root);
+
     }
 }
